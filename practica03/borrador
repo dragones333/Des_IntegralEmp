@@ -1,0 +1,109 @@
+/*let normalx:any ='hola';
+normalx=10;
+normalx=true;
+
+console.log(normalx);
+
+let usuaruio:any=20;
+
+console.log(normalx);
+
+let nombre:string='Juan';
+nombre='Juan Carlos';
+//nombre=null
+console.log(nombre);
+
+let value: any;
+console.log(value);
+
+value=true;
+value=10;
+value='hola';
+value=[];
+value={};
+value=Math.random;
+value=null;
+value=undefined;
+console.log(value);
+
+let miValor:unknown;
+console.log("Tipo Unknow", miValor);
+
+let value1:unknown=miValor;
+let value2:any=miValor;
+//let value3:boolean=miValor; //error
+//let value4:number=miValor; //error
+
+const edad:number=18;
+console.log('Edad',edad);
+console.log('Edad'+edad);
+
+const sueldo:number=1.234;
+const total:number=Number('5678');//cast
+
+console.log('Sueldo:',sueldo);
+console.log('Total:',total);
+
+const personaje:string="El Chavo";
+const otroPersonaje:string='Don Ramon';
+const otroMas:string=`Profesor Jirafales y ${personaje}`;
+console.log(otroMas);
+
+//const heroe:string='DeadPoo'l House'; 
+const heroe:string='DeadPoo7\'l House'; 
+console.log(heroe);
+console.log(heroe.toUpperCase());
+
+let vengador:any;
+vengador='Dr. Strange';
+console.log(vengador.charAt(4));
+vengador=150.55;
+console.log(vengador.toFixesd(1));
+console.log((vengador as number).toFixed(1));
+console.log(<number>vengador.toFixesd(1));
+
+let personas:string[]=['Carlos','Saul','Luis'];
+console.log(personas);
+console.log(personas[0]);
+console.log(personas[3]);
+console.log(personas[-1]);
+personas.push('Jorge');
+console.log(personas);
+
+let numeros:number[]=[1,2,3,4,5];
+let numeros2:Array<number>=[6,7,8,9,10];
+//numeros2.push('Hola');
+console.log(numeros,numeros2)
+
+let numerosCadena:any=document.getElementById('numeros1');
+for(let i =0; i< numeros.length;i++){
+    numerosCadena.innerHTML += [i]+',';
+}
+let numerosCadena2:any=document.getElementById('numeros2');
+for(let i =0; i< numeros2.length;i++){
+    numerosCadena2.innerHTML += [i]+',';
+}
+//quitar la coma al final de la cadena
+
+//union de tipos
+
+let miArray:(string|number)[]=['Carlos',42,24,'Saul',19,'Luis',25];
+console.log(miArray);
+let miArray2:Array<string|number>=['Mate','Rayo Maquin',19,'Jotson',25];
+console.log(miArray2);
+let miArray3:Array<any>=[true,10,'Hola',20.5];
+console.log(miArray3);
+let miArray4:number[]=[]; //arreglo vacio
+miArray4.push(1);
+miArray4.push(2);
+miArray4.push(3);
+console.log(miArray4.length);
+//imprimir arreves mi arreglo
+
+let miArray5:Array<any>=[];
+miArray5.push('Carlos');
+miArray5.push(true);
+miArray5.push(49);
+miArray5.push('https://pbs.twimg.com/profile_images/1075214260282818560/T8L1icgk_400x400.jpg');
+console.log(miArray5);
+//imprimir la imagen de carlos y juan usando html semantics figure*/
