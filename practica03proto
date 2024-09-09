@@ -1,3 +1,45 @@
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 4</title>
+</head>
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/index.js"></script>
+ 
+    <script>
+      const ctx = document.getElementById('myChart');
+    
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: fibonacci,
+          datasets: [{
+            label: '# of Votes',
+            data: fibonacci,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+ 
+ 
+</body>
+</html>
+
 //tuplas
 
 let tupla:[string,number]=['Lucas',23];
@@ -25,9 +67,9 @@ console.log(ourReadonlyTuple[2]);
 
 const graph:[x:number, y:number]=[55.2,34.1];
 console.log(graph);
-console.log(graph.x);*/
+console.log(graph.x);
 
-//deestructuracion de variables
+deestructuracion de variables
 const person={
     firstName:'Juan',
     lastName:'Perez',
@@ -44,7 +86,7 @@ con hasta 100 veces
  graficar en pantalla
 
  chars.js->libreria
-*/
+
 
 function fibinacciSeries(n:number):number[]{
 const series:number[]=[0,1];
@@ -57,6 +99,7 @@ return series;
 
 }
 
-const n:number=100;
+const n:number=25;
 const fibonacci:number[]=fibinacciSeries(n);
 console.log(fibonacci);
+*/
