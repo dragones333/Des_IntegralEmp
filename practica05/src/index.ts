@@ -105,10 +105,13 @@ interface User{
  //, 1 metodo o funcion, y 1 constructor
  /*
  class pruducto{}
-class usuario
+
+ clase persona->
+class usuario extendedPersona
 class carrito
 class metodosdepago
-class
+
+sera necesario establecer una clase padre y una clase hijo para aplicar el concepto de herencia 
  */
 
 //Herencia 
@@ -169,3 +172,164 @@ class Serpiente extends Animal{
 const serpiente1=new Serpiente ('Cobra');
 serpiente1.mover(2);
 serpiente1.hacerSonido("Sisiseo");
+
+
+//------------------------------------------
+
+class Productos {
+    private nombre: string;
+    private precio: number;
+    private cantidad: number;
+
+    constructor(nombre: string, precio: number, cantidad: number) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
+    getNombre(): string {
+        return this.nombre;
+    }
+
+    setNombre(nombre: string): void {
+        this.nombre = nombre;
+    }
+
+    getPrecio(): number {
+        return this.precio;
+    }
+
+    setPrecio(precio: number): void {
+        this.precio = precio;
+    }
+
+    getCantidad(): number {
+        return this.cantidad;
+    }
+
+    setCantidad(cantidad: number): void {
+        this.cantidad = cantidad;
+    }
+
+    calcularTotal(): number {
+        return this.precio * this.cantidad;
+    }
+}
+
+class Persona {
+    protected nombre: string;
+    protected apellido: string;
+    protected edad: number;
+
+    constructor(nombre: string, apellido: string, edad: number) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+    }
+
+    getNombreCompleto(): string {
+        return `${this.nombre} ${this.apellido}`;
+    }
+
+    getEdad(): number {
+        return this.edad;
+    }
+
+    setEdad(edad: number): void {
+        this.edad = edad;
+    }
+}
+
+class Usuario extends Persona {
+    private email: string;
+
+    constructor(nombre: string, apellido: string, edad: number, email: string) {
+        super(nombre, apellido, edad);
+        this.email = email;
+    }
+
+    getEmail(): string {
+        return this.email;
+    }
+
+    setEmail(email: string): void {
+        this.email = email;
+    }
+
+    mostrarInfoUsuario(): string {
+        return `${this.getNombreCompleto()}, Edad: ${this.edad}, Email: ${this.email}`;
+    }
+}
+
+class Carrito {
+    private productos: Productos[] = [];
+
+    agregarProducto(producto: Productos): void {
+        this.productos.push(producto);
+    }
+
+    quitarProducto(nombre: string): void {
+        this.productos = this.productos.filter(p => p.getNombre() !== nombre);
+    }
+
+    calcularTotalCarrito(): number {
+        return this.productos.reduce((total, producto) => total + producto.calcularTotal(), 0);
+    }
+
+    mostrarProductos(): void {
+        this.productos.forEach(producto => {
+            console.log(`${producto.getNombre()} - $${producto.getPrecio()} x ${producto.getCantidad()}`);
+        });
+    }
+}
+
+class MetodoDePago {
+    private tipo: string;
+    private saldo: number;
+
+    constructor(tipo: string, saldo: number) {
+        this.tipo = tipo;
+        this.saldo = saldo;
+    }
+
+    getTipo(): string {
+        return this.tipo;
+    }
+
+    setTipo(tipo: string): void {
+        this.tipo = tipo;
+    }
+
+    getSaldo(): number {
+        return this.saldo;
+    }
+
+    setSaldo(saldo: number): void {
+        this.saldo = saldo;
+    }
+
+    procesarPago(monto: number): boolean {
+        if (this.saldo >= monto) {
+            this.saldo -= monto;
+            console.log(`Pago de $${monto} procesado con ${this.tipo}. Saldo restante: $${this.saldo}`);
+            return true;
+        } else {
+            console.log('Saldo insuficiente para procesar el pago.');
+            return false;
+        }
+    }
+}
+
+let producto1 = new Productos("Laptop", 15000, 1);
+let producto2 = new Productos("Mouse", 500, 2);
+
+let usuario1 = new Usuario("Carlos", "Gómez", 28, "carlos@example.com");
+let carrito = new Carrito();
+carrito.agregarProducto(producto1);
+carrito.agregarProducto(producto2);
+
+console.log(`Total del carrito: $${carrito.calcularTotalCarrito()}`);
+carrito.mostrarProductos();
+
+let metodoPago = new MetodoDePago("Tarjeta de Crédito", 20000);
+metodoPago.procesarPago(carrito.calcularTotalCarrito());

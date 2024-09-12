@@ -80,10 +80,13 @@ console.log(UsuarioX.name, UsuarioX.id);
 //, 1 metodo o funcion, y 1 constructor
 /*
 class pruducto{}
-class usuario
+
+clase persona->
+class usuario extendedPersona
 class carrito
 class metodosdepago
-class
+
+sera necesario establecer una clase padre y una clase hijo para aplicar el concepto de herencia
 */
 //Herencia 
 class Animal {
@@ -130,4 +133,122 @@ class Serpiente extends Animal {
 }
 const serpiente1 = new Serpiente('Cobra');
 serpiente1.mover(2);
-serpiente1.hacerSonido(" Sisiseo");
+serpiente1.hacerSonido("Sisiseo");
+//------------------------------------------
+class Productos {
+    constructor(nombre, precio, cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+    getNombre() {
+        return this.nombre;
+    }
+    setNombre(nombre) {
+        this.nombre = nombre;
+    }
+    getPrecio() {
+        return this.precio;
+    }
+    setPrecio(precio) {
+        this.precio = precio;
+    }
+    getCantidad() {
+        return this.cantidad;
+    }
+    setCantidad(cantidad) {
+        this.cantidad = cantidad;
+    }
+    calcularTotal() {
+        return this.precio * this.cantidad;
+    }
+}
+class Persona {
+    constructor(nombre, apellido, edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+    }
+    getNombreCompleto() {
+        return `${this.nombre} ${this.apellido}`;
+    }
+    getEdad() {
+        return this.edad;
+    }
+    setEdad(edad) {
+        this.edad = edad;
+    }
+}
+class Usuario extends Persona {
+    constructor(nombre, apellido, edad, email) {
+        super(nombre, apellido, edad);
+        this.email = email;
+    }
+    getEmail() {
+        return this.email;
+    }
+    setEmail(email) {
+        this.email = email;
+    }
+    mostrarInfoUsuario() {
+        return `${this.getNombreCompleto()}, Edad: ${this.edad}, Email: ${this.email}`;
+    }
+}
+class Carrito {
+    constructor() {
+        this.productos = [];
+    }
+    agregarProducto(producto) {
+        this.productos.push(producto);
+    }
+    quitarProducto(nombre) {
+        this.productos = this.productos.filter(p => p.getNombre() !== nombre);
+    }
+    calcularTotalCarrito() {
+        return this.productos.reduce((total, producto) => total + producto.calcularTotal(), 0);
+    }
+    mostrarProductos() {
+        this.productos.forEach(producto => {
+            console.log(`${producto.getNombre()} - $${producto.getPrecio()} x ${producto.getCantidad()}`);
+        });
+    }
+}
+class MetodoDePago {
+    constructor(tipo, saldo) {
+        this.tipo = tipo;
+        this.saldo = saldo;
+    }
+    getTipo() {
+        return this.tipo;
+    }
+    setTipo(tipo) {
+        this.tipo = tipo;
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+    setSaldo(saldo) {
+        this.saldo = saldo;
+    }
+    procesarPago(monto) {
+        if (this.saldo >= monto) {
+            this.saldo -= monto;
+            console.log(`Pago de $${monto} procesado con ${this.tipo}. Saldo restante: $${this.saldo}`);
+            return true;
+        }
+        else {
+            console.log('Saldo insuficiente para procesar el pago.');
+            return false;
+        }
+    }
+}
+let producto1 = new Productos("Laptop", 15000, 1);
+let producto2 = new Productos("Mouse", 500, 2);
+let usuario1 = new Usuario("Carlos", "Gómez", 28, "carlos@example.com");
+let carrito = new Carrito();
+carrito.agregarProducto(producto1);
+carrito.agregarProducto(producto2);
+console.log(`Total del carrito: $${carrito.calcularTotalCarrito()}`);
+carrito.mostrarProductos();
+let metodoPago = new MetodoDePago("Tarjeta de Crédito", 20000);
+metodoPago.procesarPago(carrito.calcularTotalCarrito());
