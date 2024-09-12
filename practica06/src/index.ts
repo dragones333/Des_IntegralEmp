@@ -35,3 +35,25 @@ statusCode = StatusCode.NotFound;
 console.log('statusCode', statusCode);
 let volumen: number = 100;
 console.log('volumen:', volumen);
+
+
+//-----------------------------------------
+
+enum CategoriaProducto {
+    Electronica = "Electrónica",
+    Ropa = "Ropa",
+    Hogar = "Hogar",
+    Alimentos = "Alimentos"
+}
+let productoA = { nombre: "Laptop", precio: 15000, categoria: CategoriaProducto.Electronica };
+let productoB = { nombre: "Camisa", precio: 500, categoria: CategoriaProducto.Ropa };
+
+console.log(productoA);
+console.log(productoB);
+let usuarioX = { nombre: "Juan Pérez", correo: "juan@mail.com", direccion: "Av. Siempre Viva 123" };
+console.log(usuarioX);
+let carritoX = [productoA, productoB];
+carritoX.forEach(productoX => console.log(`Producto: ${productoX.nombre}, Precio: $${productoX.precio}, Categoría: ${productoX.categoria}`));
+
+let totalX = carritoX.reduce((sumaX, productoX) => sumaX + productoX.precio, 0);
+console.log("Total:", totalX);
