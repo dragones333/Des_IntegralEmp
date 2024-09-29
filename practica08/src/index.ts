@@ -25,19 +25,19 @@ const nombreCompleto2 =(nombre:string,apellido?: string)=>{
     return `${nombre} ${apellido || 'No se proporciono apellido'}`;
 
 }
-const tuNombre2=nombreCompleto2("Carlos2")
-console.log(tuNombre2);
-/*const nombreCompleto3 = (nombre?: string, apellido?: string, mayusculas: boolean = false) => {
-    return mayusculas ? `${nombre || 'No se proporciono nombre'} ${apellido || 'No se proporciono apellido'}`;
+// const tuNombre2=nombreCompleto2("Carlos2")
+// console.log(tuNombre2);
+// const nombreCompleto3 = (nombre?: string, apellido?: string, mayusculas: boolean = false) => {
+//     return mayusculas ? `${nombre || 'No se proporciono nombre'} ${apellido || 'No se proporciono apellido'}`;
     
-};
-const tuNombre3 = nombreCompleto3("Carlos3", "Serrano 3", true);
-console.log(tuNombre3);*/
+// };
+// const tuNombre3 = nombreCompleto3("Carlos3", "Serrano 3", true);
+// console.log(tuNombre3);
 
 //Operador REST
 const nombreCompleto4 = (nombre:string,edad:Number,...restoDeApellidos:string[])=>{
 return `${nombre}...RESTO ${restoDeApellidos.join(' ')} ${edad}`
-}
+};
 
 const superman4=nombreCompleto4('Clark',32,'Kent','Oswald','Smith');
 console.log(superman4);
